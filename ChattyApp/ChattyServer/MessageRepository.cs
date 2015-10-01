@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
+using ChattyDomain;
 
-namespace ChattyDomain
+namespace ChattyServer
 {
     public class MessageRepository
     {

@@ -1,4 +1,5 @@
 ﻿using ChattyDomain;
+using ChattyServices;
 using System;
 using System.Linq;
 using System.ServiceModel;

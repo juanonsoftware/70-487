@@ -63,12 +63,10 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IMessageServiceCallback.cs" />
-    <Compile Include="MessageServiceCallback.cs" />
+    <Compile Include="MessageRepository.cs" />
     <Compile Include="MessageService.svc.cs">
       <DependentUpon>MessageService.svc</DependentUpon>
     </Compile>
-    <Compile Include="IMessageService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -86,6 +84,10 @@
     <ProjectReference Include="..\ChattyDomain\ChattyDomain.csproj">
       <Project>{6C9BDD00-D27C-42C2-B4EB-2B63EBFAEB1A}</Project>
       <Name>ChattyDomain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ChattyServices\ChattyServices.csproj">
+      <Project>{B393D93A-CD04-4CDA-8F7B-EF4FE885DF2A}</Project>
+      <Name>ChattyServices</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

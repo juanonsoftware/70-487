@@ -1,5 +1,7 @@
 ﻿using ChattyApp.ChattyServer;
+using ChattyDomain;
 using System;
+using System.ServiceModel;
 
 namespace ChattyApp
 {
@@ -22,7 +24,8 @@ namespace ChattyApp
                 Console.ReadLine();
 
                 var message = "Random number is " + random.Next(1, 1001);
-                var proxy = new MessageServiceClient();
+                var context = new InstanceContext(new MessageServiceCallback());
+                var proxy = new MessageServiceClient(context);
 
                 var messageDto = new MessageDto()
                 {

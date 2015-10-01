@@ -9,86 +9,36 @@
 //------------------------------------------------------------------------------
 
 namespace ChattyApp.ChattyServer {
-    using System.Runtime.Serialization;
-    using System;
     
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="MessageDto", Namespace="http://schemas.datacontract.org/2004/07/ChattyDomain")]
-    [System.SerializableAttribute()]
-    public partial class MessageDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string MessageField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime SentAtField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Message {
-            get {
-                return this.MessageField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.MessageField, value) != true)) {
-                    this.MessageField = value;
-                    this.RaisePropertyChanged("Message");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime SentAt {
-            get {
-                return this.SentAtField;
-            }
-            set {
-                if ((this.SentAtField.Equals(value) != true)) {
-                    this.SentAtField = value;
-                    this.RaisePropertyChanged("SentAt");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ChattyServer.IMessageService")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ChattyServer.IMessageService", CallbackContract=typeof(ChattyApp.ChattyServer.IMessageServiceCallback))]
     public interface IMessageService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageService/SendMessage", ReplyAction="http://tempuri.org/IMessageService/SendMessageResponse")]
-        void SendMessage(ChattyApp.ChattyServer.MessageDto message);
+        void SendMessage(ChattyDomain.MessageDto message);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageService/SendMessage", ReplyAction="http://tempuri.org/IMessageService/SendMessageResponse")]
-        System.Threading.Tasks.Task SendMessageAsync(ChattyApp.ChattyServer.MessageDto message);
+        System.Threading.Tasks.Task SendMessageAsync(ChattyDomain.MessageDto message);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMessageService/LogMessage")]
-        void LogMessage(ChattyApp.ChattyServer.MessageDto message);
+        void LogMessage(ChattyDomain.MessageDto message);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMessageService/LogMessage")]
-        System.Threading.Tasks.Task LogMessageAsync(ChattyApp.ChattyServer.MessageDto message);
+        System.Threading.Tasks.Task LogMessageAsync(ChattyDomain.MessageDto message);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageService/GetAll", ReplyAction="http://tempuri.org/IMessageService/GetAllResponse")]
+        ChattyDomain.MessageDto[] GetAll();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageService/GetAll", ReplyAction="http://tempuri.org/IMessageService/GetAllResponse")]
+        System.Threading.Tasks.Task<ChattyDomain.MessageDto[]> GetAllAsync();
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IMessageServiceCallback {
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMessageService/NotifyMessage")]
+        void NotifyMessage(ChattyDomain.MessageDto message);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -97,41 +47,50 @@ namespace ChattyApp.ChattyServer {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class MessageServiceClient : System.ServiceModel.ClientBase<ChattyApp.ChattyServer.IMessageService>, ChattyApp.ChattyServer.IMessageService {
+    public partial class MessageServiceClient : System.ServiceModel.DuplexClientBase<ChattyApp.ChattyServer.IMessageService>, ChattyApp.ChattyServer.IMessageService {
         
-        public MessageServiceClient() {
+        public MessageServiceClient(System.ServiceModel.InstanceContext callbackInstance) : 
+                base(callbackInstance) {
         }
         
-        public MessageServiceClient(string endpointConfigurationName) : 
-                base(endpointConfigurationName) {
+        public MessageServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName) : 
+                base(callbackInstance, endpointConfigurationName) {
         }
         
-        public MessageServiceClient(string endpointConfigurationName, string remoteAddress) : 
-                base(endpointConfigurationName, remoteAddress) {
+        public MessageServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, string remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
         }
         
-        public MessageServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(endpointConfigurationName, remoteAddress) {
+        public MessageServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
         }
         
-        public MessageServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
-                base(binding, remoteAddress) {
+        public MessageServiceClient(System.ServiceModel.InstanceContext callbackInstance, System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, binding, remoteAddress) {
         }
         
-        public void SendMessage(ChattyApp.ChattyServer.MessageDto message) {
+        public void SendMessage(ChattyDomain.MessageDto message) {
             base.Channel.SendMessage(message);
         }
         
-        public System.Threading.Tasks.Task SendMessageAsync(ChattyApp.ChattyServer.MessageDto message) {
+        public System.Threading.Tasks.Task SendMessageAsync(ChattyDomain.MessageDto message) {
             return base.Channel.SendMessageAsync(message);
         }
         
-        public void LogMessage(ChattyApp.ChattyServer.MessageDto message) {
+        public void LogMessage(ChattyDomain.MessageDto message) {
             base.Channel.LogMessage(message);
         }
         
-        public System.Threading.Tasks.Task LogMessageAsync(ChattyApp.ChattyServer.MessageDto message) {
+        public System.Threading.Tasks.Task LogMessageAsync(ChattyDomain.MessageDto message) {
             return base.Channel.LogMessageAsync(message);
+        }
+        
+        public ChattyDomain.MessageDto[] GetAll() {
+            return base.Channel.GetAll();
+        }
+        
+        public System.Threading.Tasks.Task<ChattyDomain.MessageDto[]> GetAllAsync() {
+            return base.Channel.GetAllAsync();
         }
     }
 }

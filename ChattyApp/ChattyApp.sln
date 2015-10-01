@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChattyServer", "ChattyServe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChattyDomain", "ChattyDomain\ChattyDomain.csproj", "{6C9BDD00-D27C-42C2-B4EB-2B63EBFAEB1A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChattyServices", "ChattyServices\ChattyServices.csproj", "{B393D93A-CD04-4CDA-8F7B-EF4FE885DF2A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,6 +30,10 @@ Global
 		{6C9BDD00-D27C-42C2-B4EB-2B63EBFAEB1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C9BDD00-D27C-42C2-B4EB-2B63EBFAEB1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C9BDD00-D27C-42C2-B4EB-2B63EBFAEB1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B393D93A-CD04-4CDA-8F7B-EF4FE885DF2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B393D93A-CD04-4CDA-8F7B-EF4FE885DF2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B393D93A-CD04-4CDA-8F7B-EF4FE885DF2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B393D93A-CD04-4CDA-8F7B-EF4FE885DF2A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
