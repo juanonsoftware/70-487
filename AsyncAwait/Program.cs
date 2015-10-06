@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading;
 
 namespace AsyncAwait
 {
@@ -7,15 +6,15 @@ namespace AsyncAwait
     {
         static void Main(string[] args)
         {
-            ProcessRecords();
+            ProcessDbAsync();
             Console.WriteLine("Wait for the result...");
             Console.ReadLine();
         }
 
-        static async void ProcessRecords()
+        static async void ProcessDbAsync()
         {
             var repository = new Repository();
-            var records = await repository.CountRecords();
+            var records = await repository.CountRecordsAsync();
             Console.WriteLine("Records: " + records);
         }
     }
