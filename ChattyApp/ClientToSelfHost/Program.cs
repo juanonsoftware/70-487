@@ -1,6 +1,7 @@
 ﻿using ChattyDomain;
 using ClientToSelfHost.Duplex;
 using ClientToSelfHost.RequestReply;
+using Rabbit.Communication;
 using System;
 using System.Linq;
 using System.ServiceModel;
@@ -26,13 +27,7 @@ namespace ClientToSelfHost
             try
             {
                 var proxy = new MessageServiceClient();
-                if (proxy.ClientCredentials == null)
-                {
-                    return;
-                }
-
-                proxy.ClientCredentials.UserName.UserName = "hhoangvan";
-                proxy.ClientCredentials.UserName.Password = "hhoangvan";
+                proxy.SetUserNameAndPassword("hhoangvan", "hhoangvan");
 
                 var message = new MessageDto()
                 {
@@ -66,13 +61,7 @@ namespace ClientToSelfHost
             {
                 var context = new InstanceContext(new MessageServiceCallback());
                 var proxy = new DuplexMessageServiceClient(context);
-                if (proxy.ClientCredentials == null)
-                {
-                    return;
-                }
-
-                proxy.ClientCredentials.UserName.UserName = "hhoangvan";
-                proxy.ClientCredentials.UserName.Password = "hhoangvan";
+                proxy.SetUserNameAndPassword("hhoangvan", "hhoangvan");
 
                 var message = new MessageDto()
                 {

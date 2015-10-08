@@ -87,6 +87,10 @@
       <Project>{6c9bdd00-d27c-42c2-b4eb-2b63ebfaeb1a}</Project>
       <Name>ChattyDomain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Rabbit.Communication\Rabbit.Communication.csproj">
+      <Project>{4D10B54A-5CA5-4DFC-881C-34CD43AE71B2}</Project>
+      <Name>Rabbit.Communication</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

@@ -1,6 +1,7 @@
 ﻿using ChattyApp.Duplex;
 using ChattyApp.RequestReply;
 using ChattyDomain;
+using Rabbit.Communication;
 using System;
 using System.ServiceModel;
 
@@ -27,13 +28,7 @@ namespace ChattyApp
             try
             {
                 var proxy = new MessageServiceClient();
-                if (proxy.ClientCredentials == null)
-                {
-                    return;
-                }
-
-                proxy.ClientCredentials.UserName.UserName = "hhoangvan";
-                proxy.ClientCredentials.UserName.Password = "hhoangvan";
+                proxy.SetUserNameAndPassword("hhoangvan", "hhoangvan");
 
                 var messageDto = new MessageDto()
                 {
@@ -67,13 +62,7 @@ namespace ChattyApp
             {
                 var context = new InstanceContext(new MessageServiceCallback());
                 var proxy = new DuplexMessageServiceClient(context);
-                if (proxy.ClientCredentials == null)
-                {
-                    return;
-                }
-
-                proxy.ClientCredentials.UserName.UserName = "hhoangvan";
-                proxy.ClientCredentials.UserName.Password = "hhoangvan";
+                proxy.SetUserNameAndPassword("hhoangvan", "hhoangvan");
 
                 var messageDto = new MessageDto()
                 {

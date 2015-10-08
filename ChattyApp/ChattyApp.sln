@@ -20,6 +20,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientToSelfHost", "ClientT
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{8608DECB-1509-43A0-851B-81939795E6CD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rabbit.Communication", "Rabbit.Communication\Rabbit.Communication.csproj", "{4D10B54A-5CA5-4DFC-881C-34CD43AE71B2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -50,6 +52,10 @@ Global
 		{87D20DA0-EBFA-42D7-A013-967535D2BF4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87D20DA0-EBFA-42D7-A013-967535D2BF4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{87D20DA0-EBFA-42D7-A013-967535D2BF4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D10B54A-5CA5-4DFC-881C-34CD43AE71B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D10B54A-5CA5-4DFC-881C-34CD43AE71B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D10B54A-5CA5-4DFC-881C-34CD43AE71B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D10B54A-5CA5-4DFC-881C-34CD43AE71B2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
