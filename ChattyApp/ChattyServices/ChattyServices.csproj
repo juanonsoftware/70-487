@@ -30,6 +30,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="CustomAuthorizationPolicy.cs" />
+    <Compile Include="CustomPrincipal.cs" />
     <Compile Include="CustomUserNamePasswordValidator.cs" />
     <Compile Include="IDuplexMessageService.cs" />
     <Compile Include="IMessageService.cs" />

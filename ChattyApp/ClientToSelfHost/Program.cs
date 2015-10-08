@@ -12,6 +12,8 @@ namespace ClientToSelfHost
     {
         static void Main(string[] args)
         {
+            AccessService0();
+
             AccessService1();
 
             Console.WriteLine("Enter to continue service 2");
@@ -20,6 +22,30 @@ namespace ClientToSelfHost
             AccessService2();
 
             Console.ReadLine();
+        }
+
+        static void AccessService0()
+        {
+            try
+            {
+                var proxy = new MessageServiceClient();
+                proxy.SetUserNameAndPassword("hhoangvan1", "hhoangvan1");
+
+                var token = proxy.AuthorizeClient();
+                Console.WriteLine("Token " + token);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("-----");
+
+                while (ex != null)
+                {
+                    Console.WriteLine(ex.Message);
+                    ex = ex.InnerException;
+                }
+
+                Console.WriteLine("-----");
+            }
         }
 
         static void AccessService1()

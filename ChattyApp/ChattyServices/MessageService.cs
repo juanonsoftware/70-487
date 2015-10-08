@@ -1,6 +1,7 @@
 ﻿using ChattyDomain;
 using System;
 using System.Linq;
+using System.Security.Permissions;
 using System.ServiceModel;
 using System.Threading;
 
@@ -14,6 +15,12 @@ namespace ChattyServices
         public MessageService()
         {
             _messageRepository = new MessageRepository();
+        }
+
+        [PrincipalPermission(SecurityAction.Demand, Role = "Administrators")]
+        public string AuthorizeClient()
+        {
+            return Guid.NewGuid().ToString();
         }
 
         public void SendMessage(MessageDto message)

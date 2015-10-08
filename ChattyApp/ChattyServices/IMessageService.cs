@@ -7,6 +7,13 @@ namespace ChattyServices
     public interface IMessageService
     {
         /// <summary>
+        /// Authorizes client and returns a token key
+        /// </summary>
+        /// <returns></returns>
+        [OperationContract]
+        string AuthorizeClient();
+
+        /// <summary>
         /// Send a message to partner
         /// </summary>
         [OperationContract]
