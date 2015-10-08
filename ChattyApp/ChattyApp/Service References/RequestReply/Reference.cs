@@ -15,6 +15,12 @@ namespace ChattyApp.RequestReply {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="RequestReply.IMessageService")]
     public interface IMessageService {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageService/AuthorizeClient", ReplyAction="http://tempuri.org/IMessageService/AuthorizeClientResponse")]
+        string AuthorizeClient();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageService/AuthorizeClient", ReplyAction="http://tempuri.org/IMessageService/AuthorizeClientResponse")]
+        System.Threading.Tasks.Task<string> AuthorizeClientAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageService/SendMessage", ReplyAction="http://tempuri.org/IMessageService/SendMessageResponse")]
         void SendMessage(ChattyDomain.MessageDto message);
         
@@ -59,6 +65,14 @@ namespace ChattyApp.RequestReply {
         
         public MessageServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        public string AuthorizeClient() {
+            return base.Channel.AuthorizeClient();
+        }
+        
+        public System.Threading.Tasks.Task<string> AuthorizeClientAsync() {
+            return base.Channel.AuthorizeClientAsync();
         }
         
         public void SendMessage(ChattyDomain.MessageDto message) {

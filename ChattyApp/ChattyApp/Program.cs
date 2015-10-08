@@ -1,4 +1,5 @@
-﻿using ChattyApp.Duplex;
+﻿using System.ServiceModel.Security;
+using ChattyApp.Duplex;
 using ChattyApp.RequestReply;
 using ChattyDomain;
 using Rabbit.Communication;
@@ -29,6 +30,7 @@ namespace ChattyApp
             {
                 var proxy = new MessageServiceClient();
                 proxy.SetUserNameAndPassword("hhoangvan", "hhoangvan");
+                proxy.ClientCredentials.ServiceCertificate.Authentication.CertificateValidationMode = X509CertificateValidationMode.None;
 
                 var messageDto = new MessageDto()
                 {
@@ -63,6 +65,7 @@ namespace ChattyApp
                 var context = new InstanceContext(new MessageServiceCallback());
                 var proxy = new DuplexMessageServiceClient(context);
                 proxy.SetUserNameAndPassword("hhoangvan", "hhoangvan");
+                proxy.ClientCredentials.ServiceCertificate.Authentication.CertificateValidationMode = X509CertificateValidationMode.None;
 
                 var messageDto = new MessageDto()
                 {

@@ -1,7 +1,7 @@
-﻿using System;
+﻿using ChattyServices;
+using System;
 using System.Security.Principal;
 using System.ServiceModel;
-using ChattyServices;
 
 namespace ChattyServerSelfHost
 {
