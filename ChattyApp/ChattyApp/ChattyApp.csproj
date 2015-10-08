@@ -34,6 +34,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.IdentityModel" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
@@ -46,7 +47,12 @@
     <Compile Include="MessageServiceCallback.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service References\ChattyServer\Reference.cs">
+    <Compile Include="Service References\Duplex\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\RequestReply\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -55,14 +61,24 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="Properties\DataSources\ChattyDomain.MessageDto.datasource" />
-    <None Include="Service References\ChattyServer\MessageService.wsdl" />
-    <None Include="Service References\ChattyServer\MessageService.xsd">
+    <None Include="Service References\Duplex\DuplexMessageService.wsdl" />
+    <None Include="Service References\Duplex\DuplexMessageService.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ChattyServer\MessageService1.xsd">
+    <None Include="Service References\Duplex\DuplexMessageService1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ChattyServer\MessageService2.xsd">
+    <None Include="Service References\Duplex\DuplexMessageService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RequestReply\MessageService.wsdl" />
+    <None Include="Service References\RequestReply\MessageService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RequestReply\MessageService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RequestReply\MessageService2.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
@@ -76,19 +92,35 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\ChattyServer\" />
+    <WCFMetadataStorage Include="Service References\Duplex\" />
+    <WCFMetadataStorage Include="Service References\RequestReply\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\ChattyServer\MessageService.disco" />
+    <None Include="Service References\RequestReply\MessageService.disco" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\ChattyServer\configuration91.svcinfo" />
+    <None Include="Service References\RequestReply\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\ChattyServer\configuration.svcinfo" />
+    <None Include="Service References\RequestReply\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\ChattyServer\Reference.svcmap">
+    <None Include="Service References\RequestReply\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Duplex\DuplexMessageService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Duplex\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Duplex\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Duplex\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

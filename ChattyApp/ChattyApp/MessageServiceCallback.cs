@@ -1,10 +1,10 @@
-﻿using ChattyApp.ChattyServer;
+﻿using ChattyApp.Duplex;
 using ChattyDomain;
 using System;
 
 namespace ChattyApp
 {
-    public class MessageServiceCallback : IMessageServiceCallback
+    public class MessageServiceCallback : IDuplexMessageServiceCallback
     {
         public void NotifyMessage(MessageDto message)
         {

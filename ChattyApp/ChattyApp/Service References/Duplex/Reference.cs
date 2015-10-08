@@ -8,64 +8,64 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ChattyApp.ChattyServer {
+namespace ChattyApp.Duplex {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ChattyServer.IMessageService", CallbackContract=typeof(ChattyApp.ChattyServer.IMessageServiceCallback))]
-    public interface IMessageService {
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="Duplex.IDuplexMessageService", CallbackContract=typeof(ChattyApp.Duplex.IDuplexMessageServiceCallback))]
+    public interface IDuplexMessageService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageService/SendMessage", ReplyAction="http://tempuri.org/IMessageService/SendMessageResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDuplexMessageService/SendMessage", ReplyAction="http://tempuri.org/IDuplexMessageService/SendMessageResponse")]
         void SendMessage(ChattyDomain.MessageDto message);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageService/SendMessage", ReplyAction="http://tempuri.org/IMessageService/SendMessageResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDuplexMessageService/SendMessage", ReplyAction="http://tempuri.org/IDuplexMessageService/SendMessageResponse")]
         System.Threading.Tasks.Task SendMessageAsync(ChattyDomain.MessageDto message);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMessageService/LogMessage")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IDuplexMessageService/LogMessage")]
         void LogMessage(ChattyDomain.MessageDto message);
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMessageService/LogMessage")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IDuplexMessageService/LogMessage")]
         System.Threading.Tasks.Task LogMessageAsync(ChattyDomain.MessageDto message);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageService/GetAll", ReplyAction="http://tempuri.org/IMessageService/GetAllResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDuplexMessageService/GetAll", ReplyAction="http://tempuri.org/IDuplexMessageService/GetAllResponse")]
         ChattyDomain.MessageDto[] GetAll();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageService/GetAll", ReplyAction="http://tempuri.org/IMessageService/GetAllResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDuplexMessageService/GetAll", ReplyAction="http://tempuri.org/IDuplexMessageService/GetAllResponse")]
         System.Threading.Tasks.Task<ChattyDomain.MessageDto[]> GetAllAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IMessageServiceCallback {
+    public interface IDuplexMessageServiceCallback {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageService/NotifyMessage", ReplyAction="http://tempuri.org/IMessageService/NotifyMessageResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDuplexMessageService/NotifyMessage", ReplyAction="http://tempuri.org/IDuplexMessageService/NotifyMessageResponse")]
         void NotifyMessage(ChattyDomain.MessageDto message);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IMessageServiceChannel : ChattyApp.ChattyServer.IMessageService, System.ServiceModel.IClientChannel {
+    public interface IDuplexMessageServiceChannel : ChattyApp.Duplex.IDuplexMessageService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class MessageServiceClient : System.ServiceModel.DuplexClientBase<ChattyApp.ChattyServer.IMessageService>, ChattyApp.ChattyServer.IMessageService {
+    public partial class DuplexMessageServiceClient : System.ServiceModel.DuplexClientBase<ChattyApp.Duplex.IDuplexMessageService>, ChattyApp.Duplex.IDuplexMessageService {
         
-        public MessageServiceClient(System.ServiceModel.InstanceContext callbackInstance) : 
+        public DuplexMessageServiceClient(System.ServiceModel.InstanceContext callbackInstance) : 
                 base(callbackInstance) {
         }
         
-        public MessageServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName) : 
+        public DuplexMessageServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName) : 
                 base(callbackInstance, endpointConfigurationName) {
         }
         
-        public MessageServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, string remoteAddress) : 
+        public DuplexMessageServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, string remoteAddress) : 
                 base(callbackInstance, endpointConfigurationName, remoteAddress) {
         }
         
-        public MessageServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public DuplexMessageServiceClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(callbackInstance, endpointConfigurationName, remoteAddress) {
         }
         
-        public MessageServiceClient(System.ServiceModel.InstanceContext callbackInstance, System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public DuplexMessageServiceClient(System.ServiceModel.InstanceContext callbackInstance, System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(callbackInstance, binding, remoteAddress) {
         }
         

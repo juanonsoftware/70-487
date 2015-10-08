@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="38603013-2187-44e8-8716-94d065e04b11" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:59565/DuplexMessageService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="DuplexMessageService.wsdl" MetadataType="Wsdl" ID="d526c54e-4628-4a49-8a92-c55e6df3899d" SourceId="1" SourceUrl="http://localhost:59565/DuplexMessageService.svc?wsdl" />
+    <MetadataFile FileName="DuplexMessageService.xsd" MetadataType="Schema" ID="73cea7ba-c5a3-4fdb-8b9e-4d3f28a34352" SourceId="1" SourceUrl="http://localhost:59565/DuplexMessageService.svc?xsd=xsd1" />
+    <MetadataFile FileName="DuplexMessageService.disco" MetadataType="Disco" ID="f91ffd5d-5df4-4a59-b48f-cbaaaf29209b" SourceId="1" SourceUrl="http://localhost:59565/DuplexMessageService.svc?disco" />
+    <MetadataFile FileName="DuplexMessageService1.xsd" MetadataType="Schema" ID="01d71155-6d30-41d9-8d91-d382712a822b" SourceId="1" SourceUrl="http://localhost:59565/DuplexMessageService.svc?xsd=xsd0" />
+    <MetadataFile FileName="DuplexMessageService2.xsd" MetadataType="Schema" ID="f9efd072-caa3-4cd1-a849-f66552cd00f2" SourceId="1" SourceUrl="http://localhost:59565/DuplexMessageService.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

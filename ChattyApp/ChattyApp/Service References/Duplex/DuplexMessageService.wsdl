@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="MessageService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
-  <wsp:Policy wsu:Id="MessageService_policy">
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="DuplexMessageService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="DuplexMessageService_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <wsrm:RMAssertion xmlns:wsrm="http://schemas.xmlsoap.org/ws/2005/02/rm/policy">
@@ -112,7 +112,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="MessageService_SendMessage_Input_policy">
+  <wsp:Policy wsu:Id="DuplexMessageService_SendMessage_Input_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -135,7 +135,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="MessageService_SendMessage_output_policy">
+  <wsp:Policy wsu:Id="DuplexMessageService_SendMessage_output_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -158,7 +158,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="MessageService_LogMessage_Input_policy">
+  <wsp:Policy wsu:Id="DuplexMessageService_LogMessage_Input_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -181,7 +181,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="MessageService_GetAll_Input_policy">
+  <wsp:Policy wsu:Id="DuplexMessageService_GetAll_Input_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -204,7 +204,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="MessageService_GetAll_output_policy">
+  <wsp:Policy wsu:Id="DuplexMessageService_GetAll_output_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -227,7 +227,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="MessageService_NotifyMessage_output_policy">
+  <wsp:Policy wsu:Id="DuplexMessageService_NotifyMessage_output_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -250,7 +250,7 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
-  <wsp:Policy wsu:Id="MessageService_NotifyMessage_Input_policy">
+  <wsp:Policy wsu:Id="DuplexMessageService_NotifyMessage_Input_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -275,98 +275,98 @@
   </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
-      <xsd:import schemaLocation="http://localhost:59565/MessageService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
-      <xsd:import schemaLocation="http://localhost:59565/MessageService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:59565/MessageService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ChattyDomain" />
+      <xsd:import schemaLocation="http://localhost:59565/DuplexMessageService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:59565/DuplexMessageService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:59565/DuplexMessageService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ChattyDomain" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="IMessageService_SendMessage_InputMessage">
+  <wsdl:message name="IDuplexMessageService_SendMessage_InputMessage">
     <wsdl:part name="parameters" element="tns:SendMessage" />
   </wsdl:message>
-  <wsdl:message name="IMessageService_SendMessage_OutputMessage">
+  <wsdl:message name="IDuplexMessageService_SendMessage_OutputMessage">
     <wsdl:part name="parameters" element="tns:SendMessageResponse" />
   </wsdl:message>
-  <wsdl:message name="IMessageService_LogMessage_InputMessage">
+  <wsdl:message name="IDuplexMessageService_LogMessage_InputMessage">
     <wsdl:part name="parameters" element="tns:LogMessage" />
   </wsdl:message>
-  <wsdl:message name="IMessageService_GetAll_InputMessage">
+  <wsdl:message name="IDuplexMessageService_GetAll_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAll" />
   </wsdl:message>
-  <wsdl:message name="IMessageService_GetAll_OutputMessage">
+  <wsdl:message name="IDuplexMessageService_GetAll_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllResponse" />
   </wsdl:message>
-  <wsdl:message name="IMessageService_NotifyMessage_OutputCallbackMessage">
+  <wsdl:message name="IDuplexMessageService_NotifyMessage_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:NotifyMessage" />
   </wsdl:message>
-  <wsdl:message name="IMessageService_NotifyMessage_InputCallbackMessage">
+  <wsdl:message name="IDuplexMessageService_NotifyMessage_InputCallbackMessage">
     <wsdl:part name="parameters" element="tns:NotifyMessageResponse" />
   </wsdl:message>
-  <wsdl:portType name="IMessageService">
+  <wsdl:portType name="IDuplexMessageService">
     <wsdl:operation name="SendMessage">
-      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/SendMessage" message="tns:IMessageService_SendMessage_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/SendMessageResponse" message="tns:IMessageService_SendMessage_OutputMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IDuplexMessageService/SendMessage" message="tns:IDuplexMessageService_SendMessage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDuplexMessageService/SendMessageResponse" message="tns:IDuplexMessageService_SendMessage_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="LogMessage">
-      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/LogMessage" message="tns:IMessageService_LogMessage_InputMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IDuplexMessageService/LogMessage" message="tns:IDuplexMessageService_LogMessage_InputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetAll">
-      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/GetAll" message="tns:IMessageService_GetAll_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/GetAllResponse" message="tns:IMessageService_GetAll_OutputMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IDuplexMessageService/GetAll" message="tns:IDuplexMessageService_GetAll_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDuplexMessageService/GetAllResponse" message="tns:IDuplexMessageService_GetAll_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="NotifyMessage">
-      <wsdl:output wsaw:Action="http://tempuri.org/IMessageService/NotifyMessage" message="tns:IMessageService_NotifyMessage_OutputCallbackMessage" />
-      <wsdl:input wsaw:Action="http://tempuri.org/IMessageService/NotifyMessageResponse" message="tns:IMessageService_NotifyMessage_InputCallbackMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDuplexMessageService/NotifyMessage" message="tns:IDuplexMessageService_NotifyMessage_OutputCallbackMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IDuplexMessageService/NotifyMessageResponse" message="tns:IDuplexMessageService_NotifyMessage_InputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
-  <wsdl:binding name="MessageService" type="tns:IMessageService">
-    <wsp:PolicyReference URI="#MessageService_policy" />
+  <wsdl:binding name="DuplexMessageService" type="tns:IDuplexMessageService">
+    <wsp:PolicyReference URI="#DuplexMessageService_policy" />
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="SendMessage">
-      <soap12:operation soapAction="http://tempuri.org/IMessageService/SendMessage" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/IDuplexMessageService/SendMessage" style="document" />
       <wsdl:input>
-        <wsp:PolicyReference URI="#MessageService_SendMessage_Input_policy" />
+        <wsp:PolicyReference URI="#DuplexMessageService_SendMessage_Input_policy" />
         <soap12:body use="literal" />
       </wsdl:input>
       <wsdl:output>
-        <wsp:PolicyReference URI="#MessageService_SendMessage_output_policy" />
+        <wsp:PolicyReference URI="#DuplexMessageService_SendMessage_output_policy" />
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="LogMessage">
-      <soap12:operation soapAction="http://tempuri.org/IMessageService/LogMessage" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/IDuplexMessageService/LogMessage" style="document" />
       <wsdl:input>
-        <wsp:PolicyReference URI="#MessageService_LogMessage_Input_policy" />
+        <wsp:PolicyReference URI="#DuplexMessageService_LogMessage_Input_policy" />
         <soap12:body use="literal" />
       </wsdl:input>
     </wsdl:operation>
     <wsdl:operation name="GetAll">
-      <soap12:operation soapAction="http://tempuri.org/IMessageService/GetAll" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/IDuplexMessageService/GetAll" style="document" />
       <wsdl:input>
-        <wsp:PolicyReference URI="#MessageService_GetAll_Input_policy" />
+        <wsp:PolicyReference URI="#DuplexMessageService_GetAll_Input_policy" />
         <soap12:body use="literal" />
       </wsdl:input>
       <wsdl:output>
-        <wsp:PolicyReference URI="#MessageService_GetAll_output_policy" />
+        <wsp:PolicyReference URI="#DuplexMessageService_GetAll_output_policy" />
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="NotifyMessage">
-      <soap12:operation soapAction="http://tempuri.org/IMessageService/NotifyMessage" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/IDuplexMessageService/NotifyMessage" style="document" />
       <wsdl:input>
-        <wsp:PolicyReference URI="#MessageService_NotifyMessage_Input_policy" />
+        <wsp:PolicyReference URI="#DuplexMessageService_NotifyMessage_Input_policy" />
         <soap12:body use="literal" />
       </wsdl:input>
       <wsdl:output>
-        <wsp:PolicyReference URI="#MessageService_NotifyMessage_output_policy" />
+        <wsp:PolicyReference URI="#DuplexMessageService_NotifyMessage_output_policy" />
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
-  <wsdl:service name="MessageService">
-    <wsdl:port name="MessageService" binding="tns:MessageService">
-      <soap12:address location="http://localhost:59565/MessageService.svc/MessageService.svc" />
+  <wsdl:service name="DuplexMessageService">
+    <wsdl:port name="DuplexMessageService" binding="tns:DuplexMessageService">
+      <soap12:address location="http://localhost:59565/DuplexMessageService.svc/DuplexMessageService.svc" />
       <wsa10:EndpointReference>
-        <wsa10:Address>http://localhost:59565/MessageService.svc/MessageService.svc</wsa10:Address>
+        <wsa10:Address>http://localhost:59565/DuplexMessageService.svc/DuplexMessageService.svc</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
           <KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#">
             <X509Data>
