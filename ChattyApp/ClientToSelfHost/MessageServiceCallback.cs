@@ -1,4 +1,5 @@
-﻿using ClientToSelfHost.Duplex;
+﻿using ChattyDomain;
+using ClientToSelfHost.Duplex;
 using System;
 
 namespace ClientToSelfHost

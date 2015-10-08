@@ -30,7 +30,7 @@ namespace ChattyServices
             _messageRepository.Add(message);
 
             // Simulate processing time
-            Thread.Sleep(new Random().Next(100, 1001));
+            Thread.Sleep(new Random().Next(10, 101));
         }
 
         public MessageDto[] GetAll()

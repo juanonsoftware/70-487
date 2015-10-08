@@ -43,6 +43,7 @@ namespace ChattyApp
 
                 proxy.SendMessage(messageDto);
                 proxy.LogMessage(messageDto);
+                proxy.GetAll();
 
                 proxy.Close();
             }
@@ -80,6 +81,7 @@ namespace ChattyApp
                     SentAt = DateTime.Now
                 };
 
+                proxy.GetAll();
                 proxy.LogMessage(messageDto);
                 proxy.SendMessage(messageDto);
 

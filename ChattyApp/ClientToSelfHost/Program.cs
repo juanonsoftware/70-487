@@ -1,4 +1,5 @@
-﻿using ClientToSelfHost.Duplex;
+﻿using ChattyDomain;
+using ClientToSelfHost.Duplex;
 using ClientToSelfHost.RequestReply;
 using System;
 using System.Linq;
@@ -33,7 +34,16 @@ namespace ClientToSelfHost
                 proxy.ClientCredentials.UserName.UserName = "hhoangvan";
                 proxy.ClientCredentials.UserName.Password = "hhoangvan";
 
+                var message = new MessageDto()
+                {
+                    Message = "Hello request/reply"
+                };
+
+                proxy.SendMessage(message);
+                proxy.LogMessage(message);
+
                 var result = proxy.GetAll();
+
                 Console.WriteLine("Results: " + result.Count());
             }
             catch (Exception ex)
@@ -64,10 +74,12 @@ namespace ClientToSelfHost
                 proxy.ClientCredentials.UserName.UserName = "hhoangvan";
                 proxy.ClientCredentials.UserName.Password = "hhoangvan";
 
-                proxy.SendMessage(new Duplex.MessageDto()
+                var message = new MessageDto()
                 {
-                    Message = "Hello"
-                });
+                    Message = "Hello duplex"
+                };
+                proxy.SendMessage(message);
+                proxy.LogMessage(message);
 
                 var result = proxy.GetAll();
                 Console.WriteLine("Results: " + result.Count());
