@@ -1,8 +1,8 @@
-﻿using System;
+﻿using ChattyDomain;
+using System;
 using System.Linq;
 using System.ServiceModel;
 using System.Threading;
-using ChattyDomain;
 
 namespace ChattyServices
 {
@@ -10,6 +10,7 @@ namespace ChattyServices
     public class DuplexMessageService : IDuplexMessageService
     {
         private readonly MessageRepository _messageRepository;
+        private IMessageServiceCallback _serviceCallback;
 
         public DuplexMessageService()
         {
@@ -18,7 +19,10 @@ namespace ChattyServices
 
         public void SendMessage(MessageDto message)
         {
-            ServiceCallback.NotifyMessage(message);
+            if (ServiceCallback != null)
+            {
+                ServiceCallback.NotifyMessage(message);
+            }
         }
 
         public void LogMessage(MessageDto message)
@@ -34,11 +38,12 @@ namespace ChattyServices
             return _messageRepository.GetAll().ToArray();
         }
 
-        IMessageServiceCallback ServiceCallback
+        public IMessageServiceCallback ServiceCallback
         {
             get
             {
-                return OperationContext.Current.GetCallbackChannel<IMessageServiceCallback>();
+                return _serviceCallback ??
+                       (_serviceCallback = OperationContext.Current.GetCallbackChannel<IMessageServiceCallback>());
             }
         }
     }

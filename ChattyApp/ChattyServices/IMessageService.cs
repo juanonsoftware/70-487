@@ -1,5 +1,5 @@
-﻿using System.ServiceModel;
-using ChattyDomain;
+﻿using ChattyDomain;
+using System.ServiceModel;
 
 namespace ChattyServices
 {
