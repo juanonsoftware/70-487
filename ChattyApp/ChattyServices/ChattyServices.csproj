@@ -30,8 +30,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="CustomUserNamePasswordValidator.cs" />
+    <Compile Include="IDuplexMessageService.cs" />
     <Compile Include="IMessageService.cs" />
     <Compile Include="IMessageServiceCallback.cs" />
+    <Compile Include="MessageRepository.cs" />
+    <Compile Include="DuplexMessageService.cs" />
+    <Compile Include="MessageService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -41,6 +46,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="System.IdentityModel" />
     <Reference Include="System.ServiceModel" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

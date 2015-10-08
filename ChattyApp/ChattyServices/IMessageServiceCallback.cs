@@ -5,7 +5,7 @@ namespace ChattyServices
 {
     public interface IMessageServiceCallback
     {
-        [OperationContract(IsOneWay = true)]
+        [OperationContract(IsOneWay = false)]
         void NotifyMessage(MessageDto message);
     }
 }

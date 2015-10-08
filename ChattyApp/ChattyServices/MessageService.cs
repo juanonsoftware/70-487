@@ -1,15 +1,16 @@
-﻿using ChattyDomain;
-using ChattyServices;
-using System;
+﻿using System;
 using System.Linq;
 using System.ServiceModel;
 using System.Threading;
+using ChattyDomain;
 
-namespace ChattyServer
+namespace ChattyServices
 {
+    [ServiceBehavior(ConcurrencyMode = ConcurrencyMode.Reentrant, InstanceContextMode = InstanceContextMode.Single)]
     public class MessageService : IMessageService
     {
         private readonly MessageRepository _messageRepository;
+        private IMessageServiceCallback _serviceCallback;
 
         public MessageService()
         {
@@ -18,7 +19,10 @@ namespace ChattyServer
 
         public void SendMessage(MessageDto message)
         {
-            ServiceCallback.NotifyMessage(message);
+            if (ServiceCallback != null)
+            {
+                ServiceCallback.NotifyMessage(message);
+            }
         }
 
         public void LogMessage(MessageDto message)
@@ -38,7 +42,8 @@ namespace ChattyServer
         {
             get
             {
-                return OperationContext.Current.GetCallbackChannel<IMessageServiceCallback>();
+                return _serviceCallback ??
+                       (_serviceCallback = OperationContext.Current.GetCallbackChannel<IMessageServiceCallback>());
             }
         }
     }

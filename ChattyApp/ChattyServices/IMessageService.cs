@@ -1,9 +1,9 @@
-﻿using ChattyDomain;
-using System.ServiceModel;
+﻿using System.ServiceModel;
+using ChattyDomain;
 
 namespace ChattyServices
 {
-    [ServiceContract(CallbackContract = typeof(IMessageServiceCallback))]
+    [ServiceContract]
     public interface IMessageService
     {
         /// <summary>

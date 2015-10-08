@@ -24,18 +24,47 @@ namespace ChattyApp
                 Console.ReadLine();
 
                 var message = "Random number is " + random.Next(1, 1001);
-                var context = new InstanceContext(new MessageServiceCallback());
-                var proxy = new MessageServiceClient(context);
-
-                var messageDto = new MessageDto()
+                try
                 {
-                    Message = message,
-                    SentAt = DateTime.Now
-                };
+                    SendMessage(message);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("-----");
+                    
+                    while (ex != null)
+                    {
+                        Console.WriteLine(ex.Message);
+                        ex = ex.InnerException;
+                    }
 
-                proxy.LogMessage(messageDto);
-                proxy.SendMessage(messageDto);
+                    Console.WriteLine("-----");
+                }
             }
+        }
+
+        static void SendMessage(string message)
+        {
+            var context = new InstanceContext(new MessageServiceCallback());
+            var proxy = new MessageServiceClient(context);
+            if (proxy.ClientCredentials == null)
+            {
+                throw new ApplicationException("proxy.ClientCredentials is null");
+            }
+
+            proxy.ClientCredentials.UserName.UserName = "hhoangvan";
+            proxy.ClientCredentials.UserName.Password = "abcdef";
+
+            var messageDto = new MessageDto()
+            {
+                Message = message,
+                SentAt = DateTime.Now
+            };
+
+            proxy.LogMessage(messageDto);
+            proxy.SendMessage(messageDto);
+
+            proxy.Close();
         }
     }
 }

@@ -37,7 +37,7 @@ namespace ChattyApp.ChattyServer {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IMessageServiceCallback {
         
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMessageService/NotifyMessage")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageService/NotifyMessage", ReplyAction="http://tempuri.org/IMessageService/NotifyMessageResponse")]
         void NotifyMessage(ChattyDomain.MessageDto message);
     }
     

@@ -67,6 +67,12 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ChattyDomain\ChattyDomain.csproj">
+      <Project>{6c9bdd00-d27c-42c2-b4eb-2b63ebfaeb1a}</Project>
+      <Name>ChattyDomain</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
@@ -86,12 +92,6 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ChattyDomain\ChattyDomain.csproj">
-      <Project>{6c9bdd00-d27c-42c2-b4eb-2b63ebfaeb1a}</Project>
-      <Name>ChattyDomain</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
