@@ -9,108 +9,29 @@
 //------------------------------------------------------------------------------
 
 namespace ClientToSelfHost.RequestReply {
-    using System.Runtime.Serialization;
-    using System;
     
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="MessageDto", Namespace="http://schemas.datacontract.org/2004/07/ChattyDomain")]
-    [System.SerializableAttribute()]
-    public partial class MessageDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Guid IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string MessageField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime SentAtField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Guid Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Message {
-            get {
-                return this.MessageField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.MessageField, value) != true)) {
-                    this.MessageField = value;
-                    this.RaisePropertyChanged("Message");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime SentAt {
-            get {
-                return this.SentAtField;
-            }
-            set {
-                if ((this.SentAtField.Equals(value) != true)) {
-                    this.SentAtField = value;
-                    this.RaisePropertyChanged("SentAt");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="RequestReply.IMessageService")]
     public interface IMessageService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageService/SendMessage", ReplyAction="http://tempuri.org/IMessageService/SendMessageResponse")]
-        void SendMessage(ClientToSelfHost.RequestReply.MessageDto message);
+        void SendMessage(ChattyDomain.MessageDto message);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageService/SendMessage", ReplyAction="http://tempuri.org/IMessageService/SendMessageResponse")]
-        System.Threading.Tasks.Task SendMessageAsync(ClientToSelfHost.RequestReply.MessageDto message);
+        System.Threading.Tasks.Task SendMessageAsync(ChattyDomain.MessageDto message);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMessageService/LogMessage")]
-        void LogMessage(ClientToSelfHost.RequestReply.MessageDto message);
+        void LogMessage(ChattyDomain.MessageDto message);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IMessageService/LogMessage")]
-        System.Threading.Tasks.Task LogMessageAsync(ClientToSelfHost.RequestReply.MessageDto message);
+        System.Threading.Tasks.Task LogMessageAsync(ChattyDomain.MessageDto message);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageService/GetAll", ReplyAction="http://tempuri.org/IMessageService/GetAllResponse")]
-        ClientToSelfHost.RequestReply.MessageDto[] GetAll();
+        ChattyDomain.MessageDto[] GetAll();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMessageService/GetAll", ReplyAction="http://tempuri.org/IMessageService/GetAllResponse")]
-        System.Threading.Tasks.Task<ClientToSelfHost.RequestReply.MessageDto[]> GetAllAsync();
+        System.Threading.Tasks.Task<ChattyDomain.MessageDto[]> GetAllAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -140,27 +61,27 @@ namespace ClientToSelfHost.RequestReply {
                 base(binding, remoteAddress) {
         }
         
-        public void SendMessage(ClientToSelfHost.RequestReply.MessageDto message) {
+        public void SendMessage(ChattyDomain.MessageDto message) {
             base.Channel.SendMessage(message);
         }
         
-        public System.Threading.Tasks.Task SendMessageAsync(ClientToSelfHost.RequestReply.MessageDto message) {
+        public System.Threading.Tasks.Task SendMessageAsync(ChattyDomain.MessageDto message) {
             return base.Channel.SendMessageAsync(message);
         }
         
-        public void LogMessage(ClientToSelfHost.RequestReply.MessageDto message) {
+        public void LogMessage(ChattyDomain.MessageDto message) {
             base.Channel.LogMessage(message);
         }
         
-        public System.Threading.Tasks.Task LogMessageAsync(ClientToSelfHost.RequestReply.MessageDto message) {
+        public System.Threading.Tasks.Task LogMessageAsync(ChattyDomain.MessageDto message) {
             return base.Channel.LogMessageAsync(message);
         }
         
-        public ClientToSelfHost.RequestReply.MessageDto[] GetAll() {
+        public ChattyDomain.MessageDto[] GetAll() {
             return base.Channel.GetAll();
         }
         
-        public System.Threading.Tasks.Task<ClientToSelfHost.RequestReply.MessageDto[]> GetAllAsync() {
+        public System.Threading.Tasks.Task<ChattyDomain.MessageDto[]> GetAllAsync() {
             return base.Channel.GetAllAsync();
         }
     }
