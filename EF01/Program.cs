@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Migrations;
 using System.Data.Objects;
@@ -13,7 +14,22 @@ namespace EF01
             using (var context = new SampleModel1Container())
             {
                 TryGenerateSampleData(context);
-                
+
+                IList<Project> list1 = new List<Project>();
+                IList<Project> list2 = new List<Project>()
+                {
+                    new Project()
+                    {
+                        Id = 1
+                    }
+                };
+
+                // Must read the data from db then using join
+                var total = context.Projects.AsEnumerable().Join(list2, p => p.Id, p => p.Id, (x, y) => new { X = x, Y = y });
+
+
+                var z = list1.Join(list2, p => p.Id, p => p.Id, (p1, p2) => new { });
+
 
 
                 var q = new ObjectQuery<Project>("SELECT VALUE p FROM Projects as p WHERE p.Id > @projectId",
