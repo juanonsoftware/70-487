@@ -24,6 +24,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Employee_Id" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="EmployeeProject">
@@ -63,6 +64,7 @@
           </Key>
           <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="Employee" Relationship="SampleModel1.EmployeeProject" FromRole="Project" ToRole="Employee" />
+          <Property Type="String" Name="Name" Nullable="false" Unicode="true" />
         </EntityType>
         <Association Name="EmployeeProject">
           <End Type="SampleModel1.Employee" Role="Employee" Multiplicity="1" />
@@ -85,6 +87,7 @@
       <EntityTypeMapping TypeName="IsTypeOf(SampleModel1.Project)">
         <MappingFragment StoreEntitySet="Projects">
           <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
