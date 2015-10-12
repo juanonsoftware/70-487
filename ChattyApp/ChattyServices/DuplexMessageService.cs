@@ -6,11 +6,10 @@ using System.Threading;
 
 namespace ChattyServices
 {
-    [ServiceBehavior(ConcurrencyMode = ConcurrencyMode.Reentrant, InstanceContextMode = InstanceContextMode.Single)]
+    [ServiceBehavior(ConcurrencyMode = ConcurrencyMode.Single, InstanceContextMode = InstanceContextMode.Single)]
     public class DuplexMessageService : IDuplexMessageService
     {
         private readonly MessageRepository _messageRepository;
-        private IMessageServiceCallback _serviceCallback;
 
         public DuplexMessageService()
         {
@@ -42,8 +41,7 @@ namespace ChattyServices
         {
             get
             {
-                return _serviceCallback ??
-                       (_serviceCallback = OperationContext.Current.GetCallbackChannel<IMessageServiceCallback>());
+                return OperationContext.Current.GetCallbackChannel<IMessageServiceCallback>();
             }
         }
     }

@@ -37,7 +37,7 @@ namespace ChattyApp.Duplex {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IDuplexMessageServiceCallback {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDuplexMessageService/NotifyMessage", ReplyAction="http://tempuri.org/IDuplexMessageService/NotifyMessageResponse")]
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IDuplexMessageService/NotifyMessage")]
         void NotifyMessage(ChattyDomain.MessageDto message);
     }
     

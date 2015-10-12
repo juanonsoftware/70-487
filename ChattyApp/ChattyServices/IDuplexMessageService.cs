@@ -20,7 +20,5 @@ namespace ChattyServices
 
         [OperationContract]
         MessageDto[] GetAll();
-
-        IMessageServiceCallback ServiceCallback { get; }
     }
 }

@@ -7,7 +7,7 @@ using System.Threading;
 
 namespace ChattyServices
 {
-    [ServiceBehavior(ConcurrencyMode = ConcurrencyMode.Reentrant, InstanceContextMode = InstanceContextMode.Single)]
+    [ServiceBehavior(ConcurrencyMode = ConcurrencyMode.Single, InstanceContextMode = InstanceContextMode.Single)]
     public class MessageService : IMessageService
     {
         private readonly MessageRepository _messageRepository;
@@ -32,7 +32,7 @@ namespace ChattyServices
             _messageRepository.Add(message);
 
             // Simulate processing time
-            Thread.Sleep(new Random().Next(100, 1001));
+            Thread.Sleep(new Random().Next(1000, 2001));
         }
 
         public MessageDto[] GetAll()

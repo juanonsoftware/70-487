@@ -12,7 +12,6 @@ namespace ChattyServerSelfHost
             // Create a ServiceHost for the CalculatorService type and provide the base address.
             ServiceHost serviceHost = new ServiceHost(typeof(MessageService));
             ServiceHost serviceHost2 = new ServiceHost(typeof(DuplexMessageService));
-
             {
                 // Open the ServiceHostBase to create listeners and start listening for messages.
                 serviceHost.Open();

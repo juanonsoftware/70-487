@@ -5,6 +5,9 @@ namespace Rabbit.Communication
 {
     public static class CommunicationObjectExtensions
     {
+        /// <summary>
+        /// Set username and password for a channel
+        /// </summary>
         public static void SetUserNameAndPassword<TChannel>(this ClientBase<TChannel> client,
             string userName,
             string password) where TChannel : class

@@ -74,8 +74,8 @@ namespace ChattyApp
                 };
 
                 proxy.GetAll();
-                proxy.LogMessage(messageDto);
                 proxy.SendMessage(messageDto);
+                proxy.LogMessage(messageDto);
 
                 proxy.Close();
             }
